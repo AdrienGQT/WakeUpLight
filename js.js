@@ -1,4 +1,4 @@
-// Dark Mode On Load
+
 
 
 // https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_form_elements_index Pour m'aider
@@ -49,9 +49,7 @@ setInterval(function(){
 
     var wakeUpTime = document.getElementById("wakeUpTimeBack").textContent;
     var currentTime = document.getElementById("clock").textContent;
-    localStorage.setItem("wakeUpTime", wakeUpTime);
     console.log(currentTime + wakeUpTime);
-    console.log("Stocké dans le local storage: " + localStorage.getItem("wakeUpTime"))
 
     var currentTime = (hours) + ":" + (minutes);
 
@@ -69,17 +67,37 @@ setInterval(function(){
 function toggle() {
     const toggle = document.getElementById('toggle');
     toggle.classList.toggle('dark')
+
     const main = document.getElementById('main');
     main.classList.toggle('dark')
+
     const hello = document.getElementById('hello');
     hello.classList.toggle('dark')
+
     const qrev = document.getElementById('qrev');
     qrev.classList.toggle('dark')
+
+    localStorage.setItem("pageTheme","dark");
+}
+
+function toggleMode() {
+    if (localStorage.getItem("pageTheme") == "dark"){
+        toggle()
+        localStorage.removeItem("pageTheme");
+    }
+    else{
+        toggle()
+    }
+
+    console.log(localStorage.getItem("pageTheme"))
 }
 
 
 window.onload = function(){
-    if ((localStorage.getItem("mainTheme")) == "dark"){
+    console.log(localStorage.getItem("pageTheme"))
+    if ((localStorage.getItem("pageTheme")) == "dark"){
         toggle()
     }
 }
+
+
