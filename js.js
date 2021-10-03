@@ -48,8 +48,8 @@ setInterval(function(){
     }
 
     var wakeUpTime = document.getElementById("wakeUpTimeBack").textContent;
-    localStorage.setItem("wakeUpTime", wakeUpTime);
     var currentTime = document.getElementById("clock").textContent;
+    localStorage.setItem("wakeUpTime", wakeUpTime);
     console.log(currentTime + wakeUpTime);
     console.log("Stocké dans le local storage: " + localStorage.getItem("wakeUpTime"))
 
