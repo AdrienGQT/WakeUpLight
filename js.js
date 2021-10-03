@@ -1,3 +1,6 @@
+// Dark Mode On Load
+
+
 // https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_form_elements_index Pour m'aider
 
 function alarmSet(){
@@ -45,8 +48,10 @@ setInterval(function(){
     }
 
     var wakeUpTime = document.getElementById("wakeUpTimeBack").textContent;
-    var currentTime = document.getElementById("clock").textContent
-    console.log(currentTime + wakeUpTime)
+    localStorage.setItem("wakeUpTime", wakeUpTime);
+    var currentTime = document.getElementById("clock").textContent;
+    console.log(currentTime + wakeUpTime);
+    console.log("Stocké dans le local storage: " + localStorage.getItem("wakeUpTime"))
 
     var currentTime = (hours) + ":" + (minutes);
 
