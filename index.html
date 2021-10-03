@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulateur d'Aube</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src='./js.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="main">
+        <div class="toggleMode">
+            <div id="toggle">
+                <i class="indicator" onClick="toggle()"></i>
+            </div>
+        </div>
+        <div class="content">
+            <div id="hello">
+                <h2 id="hello_text">Bonjour, Adrien &#128075</h2>
+            </div>
+            <div id="qrev">
+                <p>A quelle heure voulez-vous vous réveiller ?</p>
+            </div>
+            <div class="seltime">
+                <form id="wakeUpTime">
+                    <label for="startTime"></label>
+
+                    <input type="time" name="reveilTime" onClick="alarmUnset()" onkeydown = "if (event.keyCode == 13)
+                        document.getElementById('validationButton').click()">
+
+                    <br>
+
+                    <input class="alarmSet" type="button" value="Valider ?" id="validationButton" onClick="alarmSet()"></input>
+
+                    <h2 id=clock></h2>
+
+                    <p id="wakeUpTimeBackText">Valeur: <span id="wakeUpTimeBack"></span></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

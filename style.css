@@ -1,0 +1,399 @@
+* {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Define variable */
+
+:root{
+  --bright-background-color:#e6e6e6;
+  --bright-button-background-color:rgb(230, 230, 230);
+  --bright-text-color: black;
+
+  --dark-background-color: #202020;
+  --dark-background-button-color: #141414;
+  --dark-text-color: #e6e6e6;
+}
+
+/*  */
+
+input{
+  font-weight: 500;
+}
+
+
+
+
+/* Main */
+
+#main {
+  background-color: var(--bright-background-color);
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  transition: background-color .5s;
+  z-index: 0;
+}
+
+/* Dark Main */
+
+#main.dark{
+  background: var(--dark-background-color);
+}
+
+
+
+
+/* Dark Mode Toggle */
+
+.toggleMode{
+  /* background: rgb(179, 88, 88); */
+  position: absolute;
+  right: 0px;
+  min-height: 50px;
+  min-width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .5s;
+  
+}
+
+#toggle{
+  position: relative;
+  background-color: var(--bright-button-background-color);
+  display: block;
+  height: 30px;
+  width: 60px;
+  border-radius: 30px;
+  transition: .5s;
+  box-shadow: inset 2px 2px 7px rgb(109, 109, 109),           inset -5px -5px 12px rgb(230, 230, 230);
+}
+
+#toggle.dark{
+  background-color: var(--dark-background-color);
+  box-shadow: inset 2px 2px 7px rgb(3, 3, 3),           inset -5px -5px 12px rgb(39, 39, 39);
+}
+
+#toggle .indicator{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 30px;
+  width: 30px;
+  background: linear-gradient(to bottom, #e6e6e6, #bbbbbb );
+  border-radius: 30px;
+  transition: .2s;
+  cursor: pointer;
+  transform: scale(0.8);
+  box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.3),
+              inset 0 2px 2px rgba(255, 255, 255, 0.3),
+              inset 0 -1px 1px rgba(255, 255, 255, 0.3);
+}
+
+#toggle.dark .indicator{
+  left: 30px;
+  background: linear-gradient(to bottom, #383838, #181818 );
+  box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.3),
+              inset 0 2px 2px rgba(0, 0, 0, 0.3),
+              inset 0 -1px 1px rgba(0, 0, 0, 0.3);;
+}
+
+/* @media only screen and (max-width: 563px){
+  .toggleMode{
+    right: 0;
+    left: 0;
+    bottom: 0px;
+  }
+} */
+
+
+
+
+
+/* Content */
+
+.content {
+  /* background-color: red; */
+  height: 60vh;
+  width: 80vw;
+  position: relative;
+  top: 20vh;
+  bottom: 20vh;
+}
+
+@media only screen and (max-width: 563px){
+  .content{
+    height: 80vh;
+    top: 10vh;
+    bottom: 10vh;
+  }
+}
+
+
+
+
+/* Top Text */
+
+#hello{
+  /* background-color: seagreen; */
+  height: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#hello_text{
+  font-size: 50px;
+  color: var(--bright-text-color);
+}
+
+#qrev{
+  /* background-color: burlywood; */
+  height: 25%;
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--bright-text-color);
+}
+
+/* Dark Top Text */
+
+#hello.dark #hello_text{
+  color: var(--dark-text-color);
+}
+
+#qrev.dark p{
+  color: var(--dark-text-color);
+}
+
+
+
+
+
+
+/* Time Selection */
+
+.seltime{
+  /* border: blue solid; */
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Input Time */
+
+@media only screen and (min-width: 563px){
+  input[type=time]{
+  height: 150px;
+  width: 250px;
+  margin: 5px;
+  position: relative;
+  left: 17px;
+  border: none;
+  background-color:transparent;
+  color: rgb(100, 100, 100);
+  font-size: 25px;
+  text-align: center;
+  /* border: red solid; */
+  /* background-color: chocolate; */
+}
+
+#main.dark input{
+  color: var(--dark-text-color);
+}
+
+
+input[type=time]::-webkit-datetime-edit-fields-wrapper {
+  /* background-color: red; */
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+input[type=time]:focus{
+  outline: none;
+}
+
+input[type=time]::-webkit-datetime-edit-text{
+  /* background-color: blue; */
+  padding: 21px 15px;
+}
+
+/* Hour Field */
+
+input[type=time]::-webkit-datetime-edit-hour-field{
+  background-color: var(--bright-button-background-color);
+  padding: 21px 15px;
+  border-radius: 17px;
+  transition: transform .4s, color 1s, background-color .5s;  
+  box-shadow: 5px 5px 15px rgb(145, 145, 145), -5px -5px 15px rgb(255, 255, 255);
+}
+
+input[type=time]::-webkit-datetime-edit-hour-field:focus{
+  color: rgb(0, 0, 0);
+  transform: scale(1.05);
+}
+
+input[type=time]::-webkit-datetime-edit-hour-field:hover{
+  color: rgb(0, 0, 0);
+  transform: scale(1.1);
+}
+
+#main.dark input[type="time"]::-webkit-datetime-edit-hour-field{
+  background-color: var(--dark-background-color);
+  box-shadow: 5px 5px 15px rgb(0, 0, 0), -5px -5px 15px rgb(63, 63, 63);
+}
+
+#main.dark input[type=time]::-webkit-datetime-edit-hour-field:hover{
+  color: var(--dark-text-color);
+}
+
+#main.dark input[type=time]::-webkit-datetime-edit-hour-field:focus{
+  color: var(--dark-text-color);
+}
+
+/* Minute Field */
+
+input[type=time]::-webkit-datetime-edit-minute-field{
+  background-color: var(--bright-button-background-color);
+  padding: 21px 15px;
+  border-radius: 17px;
+  transition: transform .4s, color 1s, background-color .5s; 
+  box-shadow: 5px 5px 15px rgb(145, 145, 145), -5px -5px 15px rgb(255, 255, 255);
+}
+
+input[type=time]::-webkit-datetime-edit-minute-field:focus{
+  color: rgb(0, 0, 0);
+  transform: scale(1.05);
+}
+
+input[type=time]::-webkit-datetime-edit-minute-field:hover{
+  color: rgb(0, 0, 0);
+  transform: scale(1.1);
+}
+
+#main.dark input[type="time"]::-webkit-datetime-edit-minute-field{
+  background-color: var(--dark-background-color);
+  box-shadow: 5px 5px 15px rgb(0, 0, 0), -5px -5px 15px rgb(63, 63, 63);
+}
+
+#main.dark input[type=time]::-webkit-datetime-edit-minute-field:hover{
+  color: var(--dark-text-color);
+}
+
+#main.dark input[type=time]::-webkit-datetime-edit-minute-field:focus{
+  color: var(--dark-text-color);
+}
+}
+
+
+
+/* Validation Button */
+
+input[class="alarmSet"]{
+  background-color: var(--bright-button-background-color);
+  margin-top: 10px;
+  height: 50px;
+  width: 175px;
+  border-radius: 10px;
+  font-size: 25px;
+  letter-spacing: 0.7px;
+  color: rgb(100, 100, 100);
+  box-shadow: 5px 5px 15px rgb(145, 145, 145), 
+              -5px -5px 15px rgb(255, 255, 255);
+  transition: color 1s, transform .5s, background-color .5s;
+}
+
+input[class="alarmSet"]:hover{
+  color: rgb(32, 32, 32);
+  transform: scale(1.02);
+}
+
+input[class="alarmSet"]:focus{
+  color: rgb(32, 32, 32);
+  font-weight: 550;
+  background-color: rgb(230, 230, 230);
+  outline: none;
+  box-shadow: inset 3px 3px 10px rgb(187, 187, 187),           
+              inset -5px -5px 15px rgb(230, 230, 230);
+  transform: scale(1.02);
+}
+
+#main.dark input[class="alarmSet"]{
+  background-color: var(--dark-background-color);
+  box-shadow: 5px 5px 15px rgb(0, 0, 0), 
+              -5px -5px 15px rgb(63, 63, 63);
+}
+
+#main.dark input[class="alarmSet"]:focus{
+  box-shadow: inset 3px 3px 15px rgb(0, 0, 0),                 
+              inset -3px -3px 10px rgb(44, 44, 44);
+  color: var(--dark-text-color);
+}
+
+#main.dark input[class="alarmSet"]:hover{
+  color: var(--dark-text-color);
+}
+
+@media only screen and (max-width: 563px){
+  input[type=time]{
+    -webkit-appearance: none;
+    margin-bottom: 35px;
+    height: 100px;
+    width: 100px;
+    border-radius: 20%;
+    background-image: url(./images/darkClock.png);
+    background-size: 60px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: var(--bright-button-background-color);
+    box-shadow: 5px 5px 15px rgb(145, 145, 145), 
+              -5px -5px 15px rgb(255, 255, 255);
+    transition: transform .4s, color 1s, background-color .5s; 
+    color: transparent;
+  }
+
+  input[type=time]:focus{
+    outline: none;
+    background-image: url(./images/darkDarkClock.png);
+    transform: scale(1.05);
+  }
+
+  /* Dark Mode */
+
+  #main.dark input[type=time]{
+    background-color: var(--dark-background-color);
+    box-shadow: 5px 5px 15px rgb(0, 0, 0), 
+              -5px -5px 15px rgb(63, 63, 63);
+  }
+
+  #main.dark input[type=time]:hover{
+    background-image: url(./images/brightClock.png);
+  }
+}
+
+
+
+/* Hidden Objects */
+
+#clock{
+  height: 25px;
+}
+
+#clock, #wakeUpTimeBack, #wakeUpTimeBackText{
+  visibility: hidden;
+}
+
+
+
