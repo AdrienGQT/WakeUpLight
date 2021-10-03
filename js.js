@@ -78,3 +78,8 @@ function toggle() {
 }
 
 
+window.onload = function(){
+    if ((localStorage.getItem("mainTheme")) == "dark"){
+        toggle()
+    }
+}
