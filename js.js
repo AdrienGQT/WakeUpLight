@@ -1,6 +1,4 @@
 
-
-
 // https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_form_elements_index Pour m'aider
 
 function alarmSet(){
@@ -14,6 +12,8 @@ function alarmSet(){
     document.getElementById("wakeUpTimeBack").innerHTML = wakeUpTime
 
     document.getElementById("validationButton").focus()
+
+
 
     // document.getElementById("main").style.backgroundColor = "#1a1a1a"
 }
@@ -77,25 +77,26 @@ function toggle() {
     const qrev = document.getElementById('qrev');
     qrev.classList.toggle('dark')
 
-    localStorage.setItem("pageTheme","dark");
+    store.set("pageTheme","dark");
 }
 
 function toggleMode() {
-    if (localStorage.getItem("pageTheme") == "dark"){
+    if (store.get("pageTheme") == "dark"){
         toggle()
-        localStorage.removeItem("pageTheme");
+        store.remove("pageTheme");
     }
     else{
         toggle()
     }
 
-    console.log(localStorage.getItem("pageTheme"))
+    console.log(store.get("pageTheme"))
 }
 
 
 window.onload = function(){
-    console.log(localStorage.getItem("pageTheme"))
-    if ((localStorage.getItem("pageTheme")) == "dark"){
+    console.log("-- Store.js update --")
+    console.log("Page Theme: " + store.get("pageTheme"))
+    if ((store.get("pageTheme")) == "dark"){
         toggle()
     }
 }
