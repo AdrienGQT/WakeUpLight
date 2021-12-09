@@ -1,9 +1,9 @@
-
 // https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_form_elements_index Pour m'aider
 
 function alarmSet(){
     var wakeUpTime;
     var wakeUpTime = document.getElementById('wakeUpTime').elements[0].value;
+    store.set("wakeUpTime", wakeUpTime)
 
     // var element = document.getElementById("validationButton")
 
@@ -12,7 +12,6 @@ function alarmSet(){
     document.getElementById("wakeUpTimeBack").innerHTML = wakeUpTime
 
     document.getElementById("validationButton").focus()
-
 
 
     // document.getElementById("main").style.backgroundColor = "#1a1a1a"
@@ -49,6 +48,8 @@ setInterval(function(){
 
     var wakeUpTime = document.getElementById("wakeUpTimeBack").textContent;
     var currentTime = document.getElementById("clock").textContent;
+
+
     console.log(currentTime + wakeUpTime);
 
     var currentTime = (hours) + ":" + (minutes);
@@ -95,10 +96,20 @@ function toggleMode() {
 
 window.onload = function(){
     console.log("-- Store.js update --")
+    console.log("Dans le store est stocké: " + store.get("wakeUpTime"))
+
+    // Dark Mode Check
     console.log("Page Theme: " + store.get("pageTheme"))
     if ((store.get("pageTheme")) == "dark"){
         toggle()
     }
+
+    // Delete Form
+    axios.delete('https://sheetdb.io/api/v1/82xalt9gnokc4/all')
+    .then( response => {
+        console.log(response.data);
+    });
+    console.log("Previous form deleted")
 }
 
 
